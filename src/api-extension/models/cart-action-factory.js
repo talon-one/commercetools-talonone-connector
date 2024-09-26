@@ -257,14 +257,15 @@ class CartActionFactory {
       return actions;
     }
 
-    this._cart.lineItems.forEach((item, i) => {
-      if (
-        cartItem.sku === item.productId &&
+    const lineItems = this._cart.lineItems.filter((item) => {
+      return (
         item.custom?.fields?.[TalonOneLineItemMetadata.effectFieldName] !== EffectType.addFreeItem
-      ) {
-        if (i === cartItem.position) {
-          lineItem = item;
-        }
+      );
+    });
+
+    lineItems.forEach((item, i) => {
+      if (cartItem.sku === item.productId && i === cartItem.position) {
+        lineItem = item;
       }
     });
 
