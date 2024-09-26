@@ -257,17 +257,14 @@ class CartActionFactory {
       return actions;
     }
 
-    let pos = 0;
-
-    this._cart.lineItems.forEach((item) => {
+    this._cart.lineItems.forEach((item, i) => {
       if (
         cartItem.sku === item.productId &&
         item.custom?.fields?.[TalonOneLineItemMetadata.effectFieldName] !== EffectType.addFreeItem
       ) {
-        if (pos === cartItem.position) {
+        if (i === cartItem.position) {
           lineItem = item;
         }
-        ++pos;
       }
     });
 
@@ -841,6 +838,11 @@ class CartActionFactory {
         result.push(builder.build());
       }
 
+      // This is a bit sus, in the new "cart item discount" test I had to add an extra
+      // action in the output to cater for this, which resets the price for an item. This
+      // action is then immediately countered by a second action that sets the price
+      // again. See mocks/actions/update-cart-with-per-item-discount-actions.json
+      // If I remove this another test fails so I'm keeping it for now.
       if (lineItem.priceMode === 'ExternalTotal') {
         const builder = new SetLineItemTotalPriceBuilder();
         result.push(builder.lineItemId(lineItem.id).build());

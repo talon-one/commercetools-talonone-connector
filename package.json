@@ -21,6 +21,7 @@
     "api-extension:invoke": "sls invoke -f api-extension",
     "api-extension:invoke:local": "sls invoke local -f api-extension",
     "api-extension:invoke:local:create-cart": "yarn api-extension:invoke:local -p ./src/api-extension/mocks/commercetools/create-cart-event.json",
+    "api-extension:invoke:local:create-cart-with-items": "yarn api-extension:invoke:local -p ./src/api-extension/mocks/commercetools/create-cart-with-items-event.json",
     "api-extension:invoke:local:update-cart": "yarn api-extension:invoke:local -p ./src/api-extension/mocks/commercetools/update-cart-event.json",
     "api-extension:invoke:local:create-customer": "yarn api-extension:invoke:local -p ./src/api-extension/mocks/commercetools/create-customer-event.json",
     "api-extension:invoke:local:update-customer": "yarn api-extension:invoke:local -p ./src/api-extension/mocks/commercetools/update-customer-event.json",

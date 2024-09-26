@@ -1,0 +1,68 @@
+{
+  "effects": [
+    {
+      "campaignId": 1,
+      "rulesetId": 3,
+      "ruleIndex": 0,
+      "ruleName": "10% off",
+      "effectType": "setDiscountPerItem",
+      "props": { "name": "10% off per item#0", "value": 15.8, "position": 0, "subPosition": 0 }
+    },
+    {
+      "campaignId": 1,
+      "rulesetId": 3,
+      "ruleIndex": 0,
+      "ruleName": "10% off",
+      "effectType": "setDiscountPerItem",
+      "props": { "name": "10% off per item#1", "value": 19.9, "position": 1, "subPosition": 0 }
+    },
+    {
+      "campaignId": 1,
+      "rulesetId": 3,
+      "ruleIndex": 0,
+      "ruleName": "10% off",
+      "effectType": "setDiscountPerItem",
+      "props": { "name": "10% off per item#2", "value": 9.5, "position": 2, "subPosition": 0 }
+    }
+  ],
+  "createdCoupons": [],
+  "createdReferrals": [],
+  "customerSession": {
+    "integrationId": "f5bf3563-7e91-4496-955d-1f89edeccc68",
+    "created": "2024-09-24T13:41:15.490Z",
+    "applicationId": 1,
+    "profileId": "127583fd-25c7-43aa-82ef-ccbe15c64b31",
+    "state": "open",
+    "cartItems": [
+      {
+        "name": "Bag “Sofia“ large Gabs",
+        "sku": "7c55241b-a87b-49ee-b201-0cce627b2041",
+        "quantity": 1,
+        "price": 158,
+        "position": 0
+      },
+      {
+        "name": "Bag ”Amanda B” Liebeskind brown",
+        "sku": "3fcaef03-a77b-4bc3-aa97-5aafab043685",
+        "quantity": 1,
+        "price": 199,
+        "position": 1
+      },
+      {
+        "name": "Bag medium GUM black",
+        "sku": "bc717166-5874-4307-9a85-e6df0275687f",
+        "quantity": 1,
+        "price": 95,
+        "position": 2
+      }
+    ],
+    "attributes": {},
+    "firstSession": true,
+    "total": 452,
+    "cartItemTotal": 452,
+    "additionalCostTotal": 0,
+    "referralCode": ""
+  },
+  "loyalty": { "programs": {} },
+  "fromApi": "EUR"
+}
