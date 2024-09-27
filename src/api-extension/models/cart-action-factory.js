@@ -839,12 +839,15 @@ class CartActionFactory {
         result.push(builder.build());
       }
 
-      // This is a bit sus, in the new "cart item discount" test I had to add an extra
-      // action in the output to cater for this, which is an action that resets the price
-      // for an item. In my test, this action is then immediately countered by a second
-      // action that sets the price again.
+      // While fixing a bug related to 'setDiscountPerItem' effects not being applied
+      // correctly, this stood out as a bit strange. It seems that this action is created
+      // unnecessarily in some cases.
+      // There was a new test added for the bugfix, where it was necesary to add an extra
+      // action in the output to cater for these lines of code, which resets the price
+      // for an item. In the new test, this action is then immediately countered by a
+      // second action that sets the price again.
       // (See mocks/actions/update-cart-with-per-item-discount-actions.json)
-      // If I remove this another test fails so I'm keeping it for now.
+      // If this code is removed, another test fails so this stays for now.
       if (lineItem.priceMode === 'ExternalTotal') {
         const builder = new SetLineItemTotalPriceBuilder();
         result.push(builder.lineItemId(lineItem.id).build());
