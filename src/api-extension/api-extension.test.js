@@ -2,6 +2,7 @@
 const {
   emptyEvent,
   createCartEvent,
+  createCartWithItemsEvent,
   updateCartEvent,
   createCustomerEvent,
   updateCustomerEvent,
@@ -21,6 +22,8 @@ const {
   updateCustomerSessionWithoutCouponResponse,
   updateCartWithoutCouponEvent,
   updateCartWithoutCouponActions,
+  updateCartWithPerItemDiscountActions,
+  updateCustomerSessionWithPerItemDiscountResponse,
 } = require('./mocks');
 const { CloudProvider } = require('./models/cloud-provider');
 const { GoogleTestWrapper } = require('./models/google-test-wrapper');
@@ -109,6 +112,20 @@ for (const env of matrix) {
 
       return setupEnv(env)
         .run(updateCartEvent)
+        .then((response) => {
+          expect(response).toBeDefined();
+          expect(response).toEqual(out);
+        });
+    });
+
+    it('update cart with per item discount event', () => {
+      const out = deepClone(updateCartWithPerItemDiscountActions);
+
+      return setupEnv({
+        CUSTOMER_SESSION_MOCK: updateCustomerSessionWithPerItemDiscountResponse,
+        ...env,
+      })
+        .run(createCartWithItemsEvent)
         .then((response) => {
           expect(response).toBeDefined();
           expect(response).toEqual(out);

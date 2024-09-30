@@ -257,17 +257,15 @@ class CartActionFactory {
       return actions;
     }
 
-    let pos = 0;
-
-    this._cart.lineItems.forEach((item) => {
-      if (
-        cartItem.sku === item.productId &&
+    const lineItems = this._cart.lineItems.filter((item) => {
+      return (
         item.custom?.fields?.[TalonOneLineItemMetadata.effectFieldName] !== EffectType.addFreeItem
-      ) {
-        if (pos === cartItem.position) {
-          lineItem = item;
-        }
-        ++pos;
+      );
+    });
+
+    lineItems.forEach((item, i) => {
+      if (cartItem.sku === item.productId && i === cartItem.position) {
+        lineItem = item;
       }
     });
 
@@ -841,6 +839,15 @@ class CartActionFactory {
         result.push(builder.build());
       }
 
+      // While fixing a bug related to 'setDiscountPerItem' effects not being applied
+      // correctly, this stood out as a bit strange. It seems that this action is created
+      // unnecessarily in some cases.
+      // There was a new test added for the bugfix, where it was necesary to add an extra
+      // action in the output to cater for these lines of code, which resets the price
+      // for an item. In the new test, this action is then immediately countered by a
+      // second action that sets the price again.
+      // (See mocks/actions/update-cart-with-per-item-discount-actions.json)
+      // If this code is removed, another test fails so this stays for now.
       if (lineItem.priceMode === 'ExternalTotal') {
         const builder = new SetLineItemTotalPriceBuilder();
         result.push(builder.lineItemId(lineItem.id).build());

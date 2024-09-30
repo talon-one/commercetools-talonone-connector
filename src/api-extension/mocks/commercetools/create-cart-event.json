@@ -15,7 +15,7 @@
         "isPlatformClient": false,
         "customer": {
           "typeId": "customer",
-          "id": "0e221bb9-b138-437c-be58-aff777ac6070"
+          "id": "127583fd-25c7-43aa-82ef-ccbe15c64b31"
         }
       },
       "createdBy": {
@@ -23,10 +23,10 @@
         "isPlatformClient": false,
         "customer": {
           "typeId": "customer",
-          "id": "0e221bb9-b138-437c-be58-aff777ac6070"
+          "id": "127583fd-25c7-43aa-82ef-ccbe15c64b31"
         }
       },
-      "customerId": "0e221bb9-b138-437c-be58-aff777ac6070",
+      "customerId": "127583fd-25c7-43aa-82ef-ccbe15c64b31",
       "lineItems": [],
       "cartState": "Active",
       "totalPrice": {

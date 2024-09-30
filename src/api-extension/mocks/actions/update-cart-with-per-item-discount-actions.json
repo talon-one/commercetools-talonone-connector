@@ -1,0 +1,38 @@
+{
+  "actions": [
+    {
+      "action": "setCustomType",
+      "fields": { "external_field_1": "1", "external_field_2": [true, false, { "test": true }] },
+      "type": { "key": "talon_one_cart_metadata" }
+    },
+    {
+      "action": "setLineItemTotalPrice",
+      "lineItemId": "4a489539-b484-4ade-b8cf-65f91ef36f02"
+    },
+    {
+      "action": "setLineItemTotalPrice",
+      "externalTotalPrice": {
+        "price": { "currencyCode": "EUR", "centAmount": 15800 },
+        "totalPrice": { "currencyCode": "EUR", "centAmount": 14220 }
+      },
+      "lineItemId": "4a489539-b484-4ade-b8cf-65f91ef36f02"
+    },
+    {
+      "action": "setLineItemTotalPrice",
+      "externalTotalPrice": {
+        "price": { "currencyCode": "EUR", "centAmount": 19900 },
+        "totalPrice": { "currencyCode": "EUR", "centAmount": 17910 }
+      },
+      "lineItemId": "78fabc00-c921-445f-8c8b-27624bd9944c"
+    },
+    {
+      "action": "setLineItemTotalPrice",
+      "externalTotalPrice": {
+        "price": { "currencyCode": "EUR", "centAmount": 9500 },
+        "totalPrice": { "currencyCode": "EUR", "centAmount": 8550 }
+      },
+      "lineItemId": "ec2c9847-1d54-41f3-955f-a62cd9bbe8ae"
+    }
+  ],
+  "responseType": "UpdateRequest"
+}
